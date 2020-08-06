@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Review Game App</string>
+    <string name="intro_app"> Welcome the Review Game App</string>
+    <string name="content_description_background_intro">Background Image</string>
+    <string name="login_button">Log In</string>
+    <string name="signin_button">Sign In</string>
+    <string name="enter_button">Enter</string>
+</resources>
