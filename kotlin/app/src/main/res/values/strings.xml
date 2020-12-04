@@ -1,8 +1,30 @@
 <resources>
     <string name="app_name">Review Game App</string>
-    <string name="intro_app"> Welcome the Review Game App</string>
+    <string name="intro_app"> Welcome the \n\n Review Game App</string>
     <string name="content_description_background_intro">Background Image</string>
+    <string name="content_description_detail_image">Image detail game</string>
     <string name="login_button">Log In</string>
-    <string name="signin_button">Sign In</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="logout">Logout</string>
     <string name="enter_button">Enter</string>
+    <string name="hint_username"> Username </string>
+    <string name="hint_password"> Password </string>
+    <string name="hint_confirm_password"> Confirm Password </string>
+    <string name="hint_email"> E-mail </string>
+    <string name="hint_nickname"> Nickname </string>
+    <string name="hint_birth_date"> Birth Date </string>
+    <string name="submit_button"> Submit</string>
+    <string name="sigin_with_google">Sign in with Google</string>
+    <string name="dialog_alert_title">Attention!</string>
+    <string name="playstation_console">Playstation</string>
+    <string name="xbox_console">X-Box</string>
+    <string name="wii_console">Wii</string>
+    <string name="computer_console">Computer</string>
+    <string name="message_invalid_field">Invalid fields</string>
+    <string name="problem_validate_user">Invalid fields to create new user</string>
+    <string name="problem_connection">Problem with obtain data</string>
+    <string name="problem_save_user">Problem saved the user and/or configure user with Google Sig In</string>
+    <string name="visit_official_site">Visit official site</string>
+    <string name="review_game">Review Game</string>
+    <string name="button_vote">Vote</string>
 </resources>

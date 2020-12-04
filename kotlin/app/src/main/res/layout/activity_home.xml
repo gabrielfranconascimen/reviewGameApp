@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.HomeActivity">
+
+    <ProgressBar
+        android:id="@+id/progressCircular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:id="@+id/rgConsoles"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbPlaystation"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:checked="true"
+                android:background="@drawable/btn_segmented_control_center"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="@drawable/text_segmented_control"
+                android:text="@string/playstation_console"
+                tools:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rbXbox"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_segmented_control_center"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="@drawable/text_segmented_control"
+                android:text="@string/xbox_console" />
+
+            <RadioButton
+                android:id="@+id/rbWii"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_segmented_control_center"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="@drawable/text_segmented_control"
+                android:text="@string/wii_console" />
+
+            <RadioButton
+                android:id="@+id/rbComputer"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_segmented_control_center"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="@drawable/text_segmented_control"
+                android:text="@string/computer_console" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGameList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:itemCount="3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

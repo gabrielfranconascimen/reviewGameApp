@@ -4,5 +4,11 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="black">#000000</color>
-    <color name="backgroundButton"></color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="primary_blue">#050533</color>
+    <color name="primary_blue_alpha_50">#050533</color>
+    <color name="light_blue">#050566</color>
+    <color name="ice_beige_color">#F2F1E8</color>
+    <color name="gray">#F0F0F0</color>
 </resources>

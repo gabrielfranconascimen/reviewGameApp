@@ -10,10 +10,15 @@
     <ImageView
         android:id="@+id/ivBackground"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background_intro"
+        android:layout_height="0dp"
+        android:clickable="false"
         android:contentDescription="@string/content_description_background_intro"
-        android:clickable="false"/>
+        android:src="@drawable/background_intro"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="0dp"
@@ -22,39 +27,47 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:text="@string/intro_app"
-        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/primary_blue"
         android:textSize="36sp"
         android:textStyle="bold"
-        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="42dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="220dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_selector"
         android:text="@string/login_button"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:textColor="@color/ice_beige_color"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
+        android:id="@+id/btnSignIn"
+        android:layout_width="220dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/signin_button"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:text="@string/sign_in_button"
+        android:textColor="@color/ice_beige_color"
+        android:background="@drawable/btn_selector"
+        app:layout_constraintBottom_toTopOf="@+id/btnHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="42dp"
+        android:id="@+id/btnHome"
+        android:layout_width="220dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="16dp"
         android:text="@string/enter_button"
+        android:textColor="@color/ice_beige_color"
+        android:background="@drawable/btn_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
