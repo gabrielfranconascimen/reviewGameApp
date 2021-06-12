@@ -1,59 +1,64 @@
-import React from 'react'
-import { Dimensions, FlatList, View } from 'react-native'
-import GameItem from '../../components/GameItem'
-import SegmentControl from '../../components/PlatformSegmentControl'
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, Image, ActivityIndicator, RefreshControl, Text, FlatList, View } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 
-import styles from './style'
+import TabComponent from '../../components/tab.component';
+import { playstation, nintendoSwitch, xbox, computer } from './consoles';
+import GameCell from '../../components/gameCell.component';
+import styles from './styles';
 
-import Game from '../../models/IGame'
+export default function Home({ navigation }) {
+    const allConsoles = [
+        playstation, xbox, nintendoSwitch, computer
+    ]
+    const [selectedTabID, setSelectedTabID] = useState(allConsoles[0].id);
+    const [isLoading, setIsLoading] = useState(false);
+    const [pullToRefresh, setPullToRefresh] = useState(false);
+    const [games, setGames] = useState([]);
+    const ref = firestore().collection('consoles');
 
-export default Home = (props) => {
-    const screenWidth = Math.round(Dimensions.get('window').width ) / 3 ;
-    const [tabIndex, setTabIndex] = React.useState(0);
-    const handleTabsChange = index => {
-        setTabIndex(index)
-    };
-    
-    const [games, setGames] = React.useState([
-        {
-            identifier: "BlodBorne",
-            description: "Jogo de PS",
-            image: 'https://image.api.playstation.com/cdn/UP9000/CUSA00900_00/b5uuNMulpxnRpWZDG7lPexwMY7i9Pns7.png'
+    useEffect(() => {
+        setGames([])
+        return ref.doc(selectedTabID)
+        .collection("games")
+        .onSnapshot(querySnapshot => {
+            var newGames = []; 
+            querySnapshot.forEach((doc) => {
+                newGames.push(doc.data());
+            });
+            setGames(newGames)
+        });
+    }, [selectedTabID, pullToRefresh])
 
-        },
-        {
-            identifier: "Space",
-            description: "Jogo de PS",
-            image: 'https://images-na.ssl-images-amazon.com/images/I/41sPQ+tmJsL._SX331_BO1,204,203,200_.jpg'
-
-        },
-        {
-            identifier: "God Of War",
-            description: "Jogo de PS",
-            image: 'https://i.pinimg.com/originals/ca/b2/43/cab243d020819718ce7d367f2915ad4d.jpg'
-
-        }
-    ])
-    const handleGamesChange = games => {
-        setGames(games)
-    };
+    const tapCardHandler = (game) => {
+        navigation.push('GameDetail', { game, title: game.name });
+    }
 
     return (
-        <View style={styles.container}>
-            <SegmentControl 
-            style={styles.segmentControl}
-            tabs={['Playstation', 'X-Box', 'Wii', 'Computer']} 
-            currentIndex={tabIndex}
-            onChange={handleTabsChange}/>
+        <SafeAreaView style={styles.container}>
+            <TabComponent items={allConsoles.map(console => ({
+                ...console,
+                isSelected: selectedTabID == console.id,
+                onTap: () => setSelectedTabID(console.id),
+            }))} />
+            <View style={styles.tabContent}>
             <FlatList 
-            data={games}
-            keyExtractor = {({ identifier }) => String(identifier)} 
-            numColumns= {2}
-            renderItem={
-                ({item}) => <GameItem name={item.identifier} uri={item.image} height={screenWidth}/>
-            }
+                data={games}
+                ListEmptyComponent={isLoading ? null : <Text style={styles.emptyText}>Empty list</Text>}
+                keyExtractor={(item) => item.gameReference}
+                numColumns={2}
+                refreshControl={
+                  <RefreshControl
+                      refreshing={isLoading}
+                      onRefresh={() => setPullToRefresh(!pullToRefresh)}
+                      title="Pull to refresh"
+                      tintColor="#000"
+                      titleColor="black"
+                   />
+                }
+                renderItem={({ item }) => <GameCell game={item} onTap={() => tapCardHandler(item)} />}
             />
-
-        </View>
-    )
+            </View>
+        </SafeAreaView>
+    );
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "766209976148",
+    "firebase_url": "https://review-game-app-tcc.firebaseio.com",
+    "project_id": "review-game-app-tcc",
+    "storage_bucket": "review-game-app-tcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766209976148:android:75dedbd8be9cb476ea0ac1",
+        "android_client_info": {
+          "package_name": "com.gabrielfnascimento.reviewapptcc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766209976148-9p6dhf9jsgf0lgbgtajm0lts1qb3odoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0gty1dvbM4aKbXy2QBMtr4n3uoirP-i0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766209976148-9p6dhf9jsgf0lgbgtajm0lts1qb3odoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
