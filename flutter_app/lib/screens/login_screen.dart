@@ -4,42 +4,29 @@ import 'package:flutter_app/utils/AppStrings.dart';
 import 'package:flutter_app/utils/firebase/MyFirebaseAuth.dart';
 import 'package:flutter_app/utils/Routes.dart';
 import 'package:flutter_app/utils/Validator.dart';
+import 'package:flutter_app/utils/Utils.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LogInScreen extends StatelessWidget {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   _validateFormLogin(BuildContext context) {
-    if (emailController.text.isEmpty && passwordController.text.isEmpty) {
-      _showDialog(context, "Por favor preencher os campos e-mail e senha!");
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      showMyDialog(context, "Por favor preencher os campos e-mail e senha!");
       return false;
-    } else if (!emailController.text.isValidEmail) {
-      _showDialog(context, "E-mail inválido");
+    } else if (!_emailController.text.isValidEmail) {
+      showMyDialog(context, "E-mail inválido");
       return false;
     }
     return true;
-  }
-
-  _showDialog(BuildContext context, String message) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-              title: const Text("Atenção"),
-              content: Text(message),
-              actions: [
-                TextButton(
-                    onPressed: () => Navigator.pop(context, 'Ok'),
-                    child: const Text("Ok"))
-              ],
-            ));
   }
 
   _userLogged(BuildContext context, bool isUserLogged) {
     if (isUserLogged)
       Navigator.pushNamedAndRemoveUntil(context, Routes.GameListScreen, (routes) => false);
     else
-      _showDialog(context, "Falha no login, por favor tentar novamente!");
+      showMyDialog(context, "Falha no login, por favor tentar novamente!");
   }
 
   @override
@@ -70,7 +57,7 @@ class LogInScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: TextField(
                   keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
+                  controller: _emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: AppStrings.Email,
@@ -79,7 +66,7 @@ class LogInScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: TextFormField(
-                  controller: passwordController,
+                  controller: _passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
@@ -95,7 +82,7 @@ class LogInScreen extends StatelessWidget {
                         onPressed: () async {
                           if (_validateFormLogin(context)) {
                             Future<bool> auth = Authentication.loginWithEmail(
-                                emailController.text, passwordController.text);
+                                _emailController.text, _passwordController.text);
                             auth.then((value) => _userLogged(context, value));
                           }
                         }),

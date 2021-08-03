@@ -1,6 +1,7 @@
 class AppStrings {
   static const String NameApp = "Review Game App";
   static const String WelcomePageTitle = "Welcome to the Review Game App";
+  static const String Name = "Name";
   static const String LogIn = "Log In";
   static const String SignUp = "Sign Up";
   static const String Email = "E-mail";
