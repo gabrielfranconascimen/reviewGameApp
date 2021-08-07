@@ -48,7 +48,7 @@ class WelcomePage extends StatelessWidget {
                                 AppStrings.LogIn,
                               ),
                               onPressed: () => Navigator.pushNamed(
-                                  context, Routes.LoginScreen)),
+                                  context, Routes.LoginView)),
                         ),
                         Container(
                           width: widthScreen,
@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
                                 AppStrings.SignUp,
                               ),
                               onPressed: () => Navigator.pushNamed(
-                                  context, Routes.SignUpScreen)),
+                                  context, Routes.SignUpView)),
                         )
                       ],
                     ),
