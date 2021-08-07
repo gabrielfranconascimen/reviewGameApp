@@ -4,7 +4,7 @@ import 'package:flutter_app/app/views/login_view.dart';
 import 'package:flutter_app/app/views/signup_view.dart';
 import 'package:flutter_app/screens/game_detail_screen.dart';
 import 'package:flutter_app/screens/game_list_screen.dart';
-import 'package:flutter_app/screens/welcome_page.dart';
+import 'package:flutter_app/app/views/welcome_view.dart';
 import 'package:flutter_app/utils/AppColors.dart';
 import 'package:flutter_app/utils/AppStrings.dart';
 import 'package:flutter_app/utils/Routes.dart';
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
             if (Authentication.userLogged()) {
               return GameListScreen();
             } else {
-              return WelcomePage();
+              return WelcomeView();
             }
           }
 
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         },
       ),
       routes: {
-        Routes.WelcomeView: (context) => WelcomePage(),
+        Routes.WelcomeView: (context) => WelcomeView(),
         Routes.LoginView: (context) => LoginView(),
         Routes.SignUpView: (context) => SignUpView(),
         Routes.GameListView: (context) => GameListScreen(),
