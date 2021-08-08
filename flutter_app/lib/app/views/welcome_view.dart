@@ -32,7 +32,7 @@ class WelcomeView extends StatelessWidget {
                               horizontal: AppDimens.sMediumMargin),
                           alignment: Alignment.center,
                           child: const Text(
-                            AppStrings.WelcomePageTitle,
+                            AppStrings.WelcomeViewTitle,
                             style: TextStyle(
                                 fontSize: AppDimens.bigLargeText,
                                 color: Colors.white),

@@ -53,10 +53,14 @@ class Authentication {
     return isAuthenticate;
   }
 
-  static void signOut() async {
+  static void signOut({bool isRepeat = true}) async {
     try {
       await FirebaseAuth.instance.signOut();
-    } catch (exception) {}
+    } catch (exception) {
+      if(isRepeat) {
+        signOut(isRepeat: false);
+      }
+    }
   }
 
   static bool userLogged() {

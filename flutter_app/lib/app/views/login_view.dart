@@ -43,7 +43,7 @@ class LoginView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(top: AppDimens.sMediumMargin),
                 child: Text(
-                  AppStrings.Name,
+                  AppStrings.NameApp,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: AppDimens.bigLargeText,

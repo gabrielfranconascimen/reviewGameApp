@@ -1,6 +1,6 @@
 class AppStrings {
   static const String NameApp = "Review Game App";
-  static const String WelcomePageTitle = "Welcome to the Review Game App";
+  static const String WelcomeViewTitle = "Welcome to the Review Game App";
   static const String Name = "Name";
   static const String LogIn = "Log In";
   static const String Logout = "Logout";
@@ -27,4 +27,5 @@ class ErrorStrings {
   static const String FailedToLogin = "Falha no login, por favor tentar novamente!";
   static const String FailedToSignUp = "Falha ao criar a conta, por favor tentar novamente!";
   static const String InvalidConfirmPassword = "As senhas devem ser iguais!";
+  static const String FailedFetchGames = "Error ao buscar os jogos da ";
 }
