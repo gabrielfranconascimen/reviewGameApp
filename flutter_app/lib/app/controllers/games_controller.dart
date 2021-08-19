@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/app/models/game_model.dart';
 import 'package:flutter_app/app/repositories/games_repository.dart';
 import 'package:flutter_app/utils/AppExtensions.dart';
+import 'package:flutter_app/utils/AppStrings.dart';
 import 'package:flutter_app/utils/firebase/MyFirebaseFirestore.dart';
 
 class GamesController {
@@ -48,3 +49,10 @@ class GamesController {
 enum GamesState {
   start, loading, success, error
 }
+
+final Map<int, Widget> segmentControlItems = <int, Widget>{
+  0: Text(AppStrings.Playstation),
+  1: Text(AppStrings.Xbox),
+  2: Text(AppStrings.Switch),
+  3: Text(AppStrings.Computer)
+};

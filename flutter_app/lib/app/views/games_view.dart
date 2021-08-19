@@ -10,12 +10,6 @@ import 'package:flutter_app/utils/firebase/MyFirebaseAuth.dart';
 import 'package:flutter_app/utils/firebase/MyFirebaseFirestore.dart';
 
 class GamesView extends StatefulWidget {
-  final Map<int, Widget> segmentControlItems = <int, Widget>{
-    0: Text(AppStrings.Playstation),
-    1: Text(AppStrings.Xbox),
-    2: Text(AppStrings.Switch),
-    3: Text(AppStrings.Computer)
-  };
 
   @override
   _GamesViewState createState() => _GamesViewState();
@@ -51,13 +45,13 @@ class _GamesViewState extends State<GamesView> {
       case GamesState.loading:
         return Center(child: CircularProgressIndicator());
       case GamesState.success:
-        return _newTes();
+        return _success();
       case GamesState.error:
         return Center(child: Text(ErrorStrings.FailedFetchGames));
     }
   }
 
-  _newTes() {
+  _success() {
     return GridView.builder(
       shrinkWrap: true,
       padding: const EdgeInsets.symmetric(
@@ -69,10 +63,9 @@ class _GamesViewState extends State<GamesView> {
       itemBuilder: (context, index) {
         GameModel game = _gamesController.getGameWithIndex(index);
         return Container(
-          padding: const EdgeInsets.only(top: AppDimens.smallMargin),
+          padding: const EdgeInsets.only(top: AppDimens.smallMargin, left: AppDimens.smallMargin),
           child: Stack(
             alignment: AlignmentDirectional.bottomCenter,
-            clipBehavior: Clip.hardEdge,
             children: [
               FutureBuilder(
                   future: _gamesController.getImage(game),
@@ -139,7 +132,7 @@ class _GamesViewState extends State<GamesView> {
             padding: const EdgeInsets.only(
                 top: AppDimens.sMediumMargin, bottom: AppDimens.sMediumMargin),
             child: CupertinoSegmentedControl(
-              children: widget.segmentControlItems,
+              children: segmentControlItems,
               groupValue: selectedIndex,
               onValueChanged: (int index) {
                 _updateSelectedIndex(index);
