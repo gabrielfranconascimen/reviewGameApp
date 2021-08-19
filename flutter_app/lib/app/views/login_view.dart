@@ -15,8 +15,6 @@ class LoginView extends StatelessWidget {
   );
 
   _validateLogin(BuildContext context, String? errorMessage) {
-    print("chamou validate login");
-    print(errorMessage);
     if (errorMessage != null) {
       context.showMyDialog(errorMessage);
     } else {
@@ -78,9 +76,6 @@ class LoginView extends StatelessWidget {
                         onPressed: () async {
                           await _loginController.loginWithEmailPassword().then(
                               (errorLogin) {
-                                print("Entrou no rsponse do controller");
-                                print(errorLogin);
-                                print(errorLogin?.message);
                                 _validateLogin(context, errorLogin?.message);
                               });
                         },

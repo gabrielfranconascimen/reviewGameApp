@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app/views/login_view.dart';
 import 'package:flutter_app/app/views/signup_view.dart';
-import 'package:flutter_app/screens/game_detail_screen.dart';
-import 'package:flutter_app/screens/game_list_screen.dart';
+import 'package:flutter_app/app/views/game_detail_view.dart';
+import 'package:flutter_app/app/views/games_view.dart';
 import 'package:flutter_app/app/views/welcome_view.dart';
 import 'package:flutter_app/utils/AppColors.dart';
 import 'package:flutter_app/utils/AppStrings.dart';
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
 
           if (snapshot.hasData) {
             if (Authentication.userLogged()) {
-              return GameListScreen();
+              return GamesView();
             } else {
               return WelcomeView();
             }
@@ -60,8 +60,8 @@ class MyApp extends StatelessWidget {
         Routes.WelcomeView: (context) => WelcomeView(),
         Routes.LoginView: (context) => LoginView(),
         Routes.SignUpView: (context) => SignUpView(),
-        Routes.GameListView: (context) => GameListScreen(),
-        Routes.GameDetailView: (context) => GameDetailScreen(),
+        Routes.GameListView: (context) => GamesView(),
+        Routes.GameDetailView: (context) => GameDetailView(),
       },
     );
   }

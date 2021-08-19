@@ -14,6 +14,8 @@ class AppStrings {
   static const String Xbox = "X-Box";
   static const String Switch = "Switch";
   static const String Computer = "Computer";
+  static const String ReviewGame = "Review Game";
+  static const String OfficialSite = "Visit Official Site";
 }
 
 class ErrorStrings {
@@ -28,4 +30,5 @@ class ErrorStrings {
   static const String FailedToSignUp = "Falha ao criar a conta, por favor tentar novamente!";
   static const String InvalidConfirmPassword = "As senhas devem ser iguais!";
   static const String FailedFetchGames = "Error ao buscar os jogos da ";
+  static const String FailedOpenBrowser = "Houve um problema ao abrir o site oficial, por favor tente novamente!";
 }

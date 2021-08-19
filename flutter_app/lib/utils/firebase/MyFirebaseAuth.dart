@@ -14,15 +14,11 @@ class Authentication {
 
   static Future<bool> loginWithEmail(String email, String password) async {
     try {
-      print("Chamou Login");
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      print("Criou user");
-      print(userCredential.user);
 
       return userCredential.user != null;
     } catch (exception) {
-      print("chamou exception");
       return false;
     }
 

@@ -24,8 +24,6 @@ class LoginController {
 
     return await Authentication.loginWithEmail(
         login.text, password.text).then((successLogin) {
-          print("Entrou no response do login");
-          print(successLogin);
           if (successLogin) {
             return null;
           } else {
