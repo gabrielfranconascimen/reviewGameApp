@@ -32,7 +32,11 @@ class RemoteDataUser {
                 .get()
                 .addOnSuccessListener { result ->
                     if (result.exists()) {
-                        user = result.toObject(User::class.java)
+                        user = User(
+                            name = result["name"].toString(),
+                            nickname = "",
+                            birthDate = ""
+                        )
                     }
                     callback.invoke(user)
                 }
